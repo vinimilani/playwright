@@ -1,13 +1,14 @@
 const { test, expect } = require('@playwright/test');
+import { selectors, pageTexts } from '../../utils/constants';
 
 test('Testing API - Deck of Cards', { 
   tag: '@e2e',
 },
  async ({ page }) => {
     await page.goto('https://deckofcardsapi.com/')
-    await expect(page).toHaveTitle(/Deck of Cards API/)
-    const header = await page.getByRole('heading', { name: 'Deck of Cards' })
-    await expect(header).toHaveText('Deck of Cards')
-    const element = await page.locator('#shuffle');
-    await expect (element).toHaveText('Shuffle the Cards:')
+    await expect(page).toHaveTitle(pageTexts.title)
+    const header = await page.getByRole('heading', { name: pageTexts.header })
+    await expect(header).toHaveText(pageTexts.header)
+    const element = await page.locator(selectors.shuffleCards);
+    await expect (element).toHaveText(pageTexts.shuffle)
   });
