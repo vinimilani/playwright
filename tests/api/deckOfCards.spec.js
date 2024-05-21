@@ -1,6 +1,9 @@
 const { test, expect } = require('@playwright/test');
 
-test('Testing API - Deck of Cards', async ({ request }) => {
+test('Testing API - Deck of Cards', { 
+  tag: '@API',
+},
+ async ({ request }) => {
     
     const suffle = await request.get('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1') // 1 deck is used
     expect(suffle.ok()).toBeTruthy();
