@@ -25,10 +25,4 @@ jobs:
         name: playwright-report
         path: playwright-report/
         retention-days: 30
-  clean:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-    - name: Clean workspace
-      run: sudo rm -rf *
   
