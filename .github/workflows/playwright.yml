@@ -4,6 +4,12 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  schedule:
+    - cron: '0 8 * * *'
+    - cron: '0 12 * * *'
+    - cron: '0 18 * * *'
+  workflow_dispatch:
+
 jobs:
   test:
     timeout-minutes: 10
@@ -25,4 +31,3 @@ jobs:
         name: playwright-report
         path: playwright-report/
         retention-days: 30
-  
