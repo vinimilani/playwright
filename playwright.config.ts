@@ -10,7 +10,8 @@ const { defineConfig, devices } = require('@playwright/test');
 /**
  * @see https://playwright.dev/docs/test-configuration
  */
-module.exports = defineConfig({
+export default defineConfig({
+  tsconfig: '.tsconfig.json',
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
